@@ -1,0 +1,364 @@
+*
+{
+    box-sizing: border-box;
+}
+
+body
+{
+    margin: 0%;
+    background-image: url("Card_pictures\\wp1918589-glowing-jellyfish-wallpapers\ \(1\).jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#page-title
+{
+    font-family:'Roboto', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    text-align: center;
+}
+
+.overlay-text
+{ 
+    display: none;
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    bottom: 0%;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color:white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}    
+
+.overlay-text.visible
+{
+    display: flex;
+    flex-direction: column;
+    animation: overlay-grow 500ms forwards;
+}
+
+.game-container
+{
+    display: grid;
+    grid-template-rows: 100px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(40px);
+            backdrop-filter: blur(40px);   
+}    
+
+.game-info-container
+{
+    display: flex;
+    grid-column: 1/-1;
+    justify-content: space-between;
+    background-color: transparent;
+}
+
+.game-info
+{
+    font-weight: bolder;
+    font-family:'Roboto', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+}
+
+.cards
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    height: 100%;
+    border-radius: 0.5%;
+}
+
+.card
+{   
+    position: relative;
+    background-color:transparent;
+}
+
+.card-face
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 black;
+    border-radius: 0.5%;
+}
+
+.card:hover .card-face
+{
+    transform: scale(95%, 95%);
+    transition-timing-function: ease-in-out;
+}
+
+.card-back
+{ 
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; 
+}    
+
+.card-front
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden; 
+    transform: rotateY(180deg);
+}
+
+img
+{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) 
+{
+    .game-container
+    {
+        height: 700px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    #page-title
+    {
+        font-size: 50px;
+    }
+
+    .game-info
+    {
+        font-size: 20px;
+        margin: 5px;
+    }
+
+    .cards
+    {
+        margin-top: 0px;
+        padding: 5px;
+        grid-gap: 10px;
+    }
+
+    .overlay-text-small
+    {
+        font-size: .2em;
+    }
+
+    @keyframes overlay-grow 
+    {
+        from
+        {
+            background-color: rgba(0, 0, 0 ,0);
+            font-size: 0;
+        }    
+        to
+        {
+            background-color: rgba(0, 0, 0, 0.8);
+            font-size: 3em;
+        }
+    }
+     
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) 
+{
+    .game-container
+    {
+        height: 1000px;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    #page-title
+    {
+        font-size: 50px;
+    }
+    
+    .game-info
+    {
+        font-size: 20px;
+        margin: 15px;
+    }
+
+    .cards
+    {
+        margin-top: 10px;
+        padding: 10px;
+        grid-gap: 20px;
+    }
+
+    .overlay-text-small
+    {
+        font-size: .2em;
+    }
+
+    @keyframes overlay-grow 
+    {
+        from
+        {
+            background-color: rgba(0, 0, 0 ,0);
+            font-size: 0;
+        }    
+        to
+        {
+            background-color: rgba(0, 0, 0, 0.8);
+            font-size: 3em;
+        }
+    }
+}
+  
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) 
+{
+    .game-container
+    {
+        height: 1000 px;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    #page-title
+    {
+        font-size: 60px;
+    }
+
+    .game-info
+    {
+        font-size: 20px;
+        margin: 15px;
+    }
+
+    .cards
+    {
+        margin-top: 10px;
+        padding: 10px;
+        grid-gap: 20px;
+    }
+
+    .overlay-text-small
+    {
+        font-size: .3em;
+    }
+
+    @keyframes overlay-grow 
+    {
+        from
+        {
+            background-color: rgba(0, 0, 0 ,0);
+            font-size: 0;
+        }    
+        to
+        {
+            background-color: rgba(0, 0, 0, 0.8);
+            font-size: 5em;
+        }
+    }
+} 
+  
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px)
+{
+    .game-container
+    {
+        height: 1100px;
+        margin-left: 13%;
+        margin-right: 13%;
+    }
+
+    #page-title
+    {
+        font-size: 70px;
+    }
+
+    .game-info
+    {
+        font-size: 25px;
+        margin: 20px;
+    }
+
+    .cards
+    {
+        margin-top: 10px;
+        padding: 20px;
+        grid-gap: 20px;
+    }
+
+    @keyframes overlay-grow 
+    {
+        from
+        {
+            background-color: rgba(0, 0, 0 ,0);
+            font-size: 0;
+        }    
+        to
+        {
+            background-color: rgba(0, 0, 0, 0.8);
+            font-size: 5em;
+        }
+    }
+}
+  
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) 
+{
+    .game-container
+    {
+        height: 1200px;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+    #page-title
+    {
+        font-size: 70px;
+    }
+
+    .game-info
+    {
+        font-size: 25px;
+        margin: 20px;
+    }
+
+    .cards
+    {
+        margin-top: 10px;
+        padding: 20px;
+        grid-gap: 20px;
+    }
+
+    .overlay-text-small
+    {
+        font-size: .3em;
+    }
+
+    @keyframes overlay-grow 
+    {
+        from
+        {
+            background-color: rgba(0, 0, 0 ,0);
+            font-size: 0;
+        }    
+        to
+        {
+            background-color: rgba(0, 0, 0, 0.8);
+            font-size: 8em;
+        }
+    }
+}
+
+
+ 
